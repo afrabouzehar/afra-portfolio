@@ -1,0 +1,4 @@
+# Optional for future tools
+ .DS_Store
+ node_modules/
+ dist/
