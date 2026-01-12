@@ -31,3 +31,11 @@ a:hover { text-decoration: underline;}
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 16px;
 }
+.card {
+    background: var(--card); border: 1px solid #1f2937; border-radius: 12px;
+    padding: 16px;
+}
+.skills { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; }
+.skills li {
+    background: #0b1224; border: 1px solid #1f2937; padding: 6px; 
+}
