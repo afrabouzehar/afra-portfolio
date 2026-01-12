@@ -37,5 +37,6 @@ a:hover { text-decoration: underline;}
 }
 .skills { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; }
 .skills li {
-    background: #0b1224; border: 1px solid #1f2937; padding: 6px; 
+    background: #0b1224; border: 1px solid #1f2937; padding: 6px 10px; border-radius: 8px;
 }
+footer { padding: 24px; text-align: center; border-top: 1px solid #1f2937; color: var(--muted); }
