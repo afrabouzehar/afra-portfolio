@@ -1,3 +1,12 @@
 nav{
-    color: blueviolet;
+    background-color: blueviolet;
+    text-decoration: none;
+    display: flex;
+
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style:none;
 }
