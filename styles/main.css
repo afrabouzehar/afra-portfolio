@@ -1,10 +1,14 @@
+*{
+   
+    box-sizing: border-box;
+}
 .navbar{
     background-image:linear-gradient(rgb(181, 128, 231),blueviolet,rgb(181, 128, 231));
     text-decoration: none;
     display: flex;
     justify-content: center;
     border-radius: 15px;
-    padding: 10px;
+    padding: 5px;
     font-size: 20px;
     font-style: bold;
     height: 60px;
@@ -26,7 +30,7 @@ ul{
     
 }
 li{
-    padding: 15px 15px;
+    padding: 10px 10px;
     color: black;
     
    
