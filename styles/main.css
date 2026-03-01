@@ -60,29 +60,3 @@ h1 {
 a{
     text-decoration: none;
 }
-@media (max-width: 600px) {
-  h1 {
-    font-size: 12vw; /* smaller heading on phones */
-    margin: 20px;
-  }
-
-  .p {
-    width: 90%; /* take most of the screen width */
-    font-size: 16px;
-  }
-
-  .navbar {
-    flex-direction: column; /* stack links vertically */
-    height: auto;
-  }
-
-  ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  li {
-    text-align: center;
-    width: 100%;
-  }
-}
