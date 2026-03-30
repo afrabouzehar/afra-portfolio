@@ -1,25 +1,371 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv=“Pragma” content=”no-cache”>
-<meta http-equiv=“Expires” content=”-1″>
-<meta http-equiv=“CACHE-CONTROL” content=”NO-CACHE”>
-<!-- CSS Stylesheets -->
-<link rel="stylesheet" href="css/master.css">
-
-<title>Portfolio Project</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Dev Creative</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css">
 </head>
-
 <body>
 
-   <h1>Portfolio Project</h1>
+  <!-- CURSOR -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
 
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Alex.dev</div>
+    <ul class="nav-links">
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#projects">Projets</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact" class="nav-cta">Me contacter</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-orb orb1"></div>
+    <div class="hero-bg-orb orb2"></div>
+
+    <div class="hero-tag">
+      <span class="dot"></span> Disponible pour de nouveaux projets
+    </div>
+
+    <h1 class="hero-title">
+      <span class="line"><span class="reveal">Designer &</span></span>
+      <span class="line"><span class="reveal">Développeur</span></span>
+      <span class="line"><span class="reveal grad">Full‑Stack.</span></span>
+    </h1>
+
+    <p class="hero-sub">
+      Je crée des expériences digitales mémorables — du concept à la mise en ligne,
+      avec une obsession pour le détail et la performance.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">
+        Voir mes projets
+        <span>→</span>
+      </a>
+      <a href="#contact" class="btn btn-secondary">
+        Travailler ensemble
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <div class="stat-val" data-count="42">0</div>
+        <div class="stat-label">Projets livrés</div>
+      </div>
+      <div>
+        <div class="stat-val" data-count="5">0</div>
+        <div class="stat-label">Années d'expérience</div>
+      </div>
+      <div>
+        <div class="stat-val" data-count="98">0</div>
+        <div class="stat-label">% Clients satisfaits</div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <div class="about-img-inner">
+          🧑‍💻
+          <div class="about-img-badge">
+            5+ <span>années</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="section-label reveal">À propos de moi</span>
+        <h2 class="section-title reveal">Passionné par le <span style="color:var(--accent)">craft</span> digital</h2>
+        <p class="reveal reveal-delay-1">Je suis un développeur full-stack et designer UI/UX basé à Casablanca. Je transforme des idées complexes en interfaces élégantes et des architectures robustes.</p>
+        <p class="reveal reveal-delay-2">Mon approche combine rigueur technique et sensibilité design — parce qu'un bon produit doit être aussi beau que performant.</p>
+        <div class="skill-tags reveal reveal-delay-3">
+          <span class="skill-tag">React / Next.js</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">UI/UX Design</span>
+          <span class="skill-tag">Three.js</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="projects-header">
+      <div>
+        <span class="section-label reveal">Projets sélectionnés</span>
+        <h2 class="section-title reveal">Mon travail récent</h2>
+      </div>
+      <a href="#" class="btn btn-secondary reveal" style="align-self:flex-end">Voir tout →</a>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card p1 reveal">
+        <div class="project-thumb">
+          <div class="project-thumb-bg"></div>
+          <span style="position:relative;z-index:1">🛍️</span>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="project-cat">E-Commerce</span>
+            <span class="project-year">2024</span>
+          </div>
+          <h3 class="project-title">NovaBoutique — Plateforme e-commerce premium</h3>
+          <p class="project-desc">Refonte complète d'une boutique en ligne avec panier animé, paiement Stripe, dashboard analytics et gestion des stocks en temps réel.</p>
+          <div class="project-tags">
+            <span class="project-tag">Next.js</span>
+            <span class="project-tag">Stripe</span>
+            <span class="project-tag">Prisma</span>
+            <span class="project-tag">Tailwind</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </div>
+
+      <div class="project-card p2 reveal reveal-delay-1">
+        <div class="project-thumb">
+          <div class="project-thumb-bg"></div>
+          <span style="position:relative;z-index:1">📊</span>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="project-cat">SaaS / Dashboard</span>
+            <span class="project-year">2024</span>
+          </div>
+          <h3 class="project-title">DataFlow Analytics</h3>
+          <p class="project-desc">Dashboard SaaS avec visualisations temps réel, filtres dynamiques et exports PDF automatisés.</p>
+          <div class="project-tags">
+            <span class="project-tag">React</span>
+            <span class="project-tag">D3.js</span>
+            <span class="project-tag">Node.js</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </div>
+
+      <div class="project-card p3 reveal reveal-delay-2">
+        <div class="project-thumb">
+          <div class="project-thumb-bg"></div>
+          <span style="position:relative;z-index:1">🏠</span>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="project-cat">Immobilier / Web App</span>
+            <span class="project-year">2023</span>
+          </div>
+          <h3 class="project-title">HomeQuest — App immobilière</h3>
+          <p class="project-desc">Application de recherche immobilière avec carte interactive, filtres avancés et système de favoris.</p>
+          <div class="project-tags">
+            <span class="project-tag">Vue.js</span>
+            <span class="project-tag">Mapbox</span>
+            <span class="project-tag">Django</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <span class="section-label reveal">Ce que je fais</span>
+    <h2 class="section-title reveal">Services proposés</h2>
+    <p class="section-sub reveal">Des solutions sur mesure, de la stratégie à la mise en production.</p>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">🎨</div>
+        <h3 class="service-title">Design UI/UX</h3>
+        <p class="service-desc">Conception d'interfaces centrées utilisateur, prototypage interactif sur Figma, systèmes de design cohérents et accessibles.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">⚡</div>
+        <h3 class="service-title">Développement Front-end</h3>
+        <p class="service-desc">Intégration pixel-perfect, animations fluides, optimisation des performances et code maintenable avec React ou Vue.js.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">🔧</div>
+        <h3 class="service-title">Back-end & API</h3>
+        <p class="service-desc">Architecture solide, APIs RESTful ou GraphQL, bases de données optimisées, authentification sécurisée et déploiement cloud.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <span class="section-label reveal">Témoignages</span>
+    <h2 class="section-title reveal">Ce que disent mes clients</h2>
+    <div class="testimonials-track-wrap reveal">
+      <div class="testimonials-track" id="track">
+        <!-- Cards duplicated for infinite scroll -->
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">« Alex a transformé notre vision en réalité en un temps record. Le résultat est bluffant — notre taux de conversion a augmenté de 40%. »</p>
+          <div class="testi-author">
+            <div class="testi-avatar">👩</div>
+            <div><div class="testi-name">Sarah M.</div><div class="testi-role">CEO · NovaBoutique</div></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">« Une maîtrise technique exceptionnelle couplée à un sens du design rare. Livraison dans les délais, communication parfaite. »</p>
+          <div class="testi-author">
+            <div class="testi-avatar">👨</div>
+            <div><div class="testi-name">Karim A.</div><div class="testi-role">CTO · DataFlow</div></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">« Notre app immobilière est devenue la référence du marché. Alex a su anticiper nos besoins et proposer des solutions innovantes. »</p>
+          <div class="testi-author">
+            <div class="testi-avatar">👩</div>
+            <div><div class="testi-name">Yasmine B.</div><div class="testi-role">Dir. Prod. · HomeQuest</div></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">« Professionnalisme et créativité au rendez-vous. Je recommande Alex les yeux fermés pour tout projet digital ambitieux. »</p>
+          <div class="testi-author">
+            <div class="testi-avatar">👨</div>
+            <div><div class="testi-name">Thomas R.</div><div class="testi-role">Fondateur · StartupX</div></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">« Un vrai partenaire, pas juste un prestataire. Alex comprend les enjeux business et livre des interfaces qui convertissent. »</p>
+          <div class="testi-author">
+            <div class="testi-avatar">👩</div>
+            <div><div class="testi-name">Leila K.</div><div class="testi-role">CMO · AgencePulse</div></div>
+          </div>
+        </div>
+        <!-- Duplicate for infinite loop -->
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">« Alex a transformé notre vision en réalité en un temps record. Le résultat est bluffant — notre taux de conversion a augmenté de 40%. »</p>
+          <div class="testi-author">
+            <div class="testi-avatar">👩</div>
+            <div><div class="testi-name">Sarah M.</div><div class="testi-role">CEO · NovaBoutique</div></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">« Une maîtrise technique exceptionnelle couplée à un sens du design rare. Livraison dans les délais, communication parfaite. »</p>
+          <div class="testi-author">
+            <div class="testi-avatar">👨</div>
+            <div><div class="testi-name">Karim A.</div><div class="testi-role">CTO · DataFlow</div></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">« Notre app immobilière est devenue la référence du marché. Alex a su anticiper nos besoins et proposer des solutions innovantes. »</p>
+          <div class="testi-author">
+            <div class="testi-avatar">👩</div>
+            <div><div class="testi-name">Yasmine B.</div><div class="testi-role">Dir. Prod. · HomeQuest</div></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">« Professionnalisme et créativité au rendez-vous. Je recommande Alex les yeux fermés pour tout projet digital ambitieux. »</p>
+          <div class="testi-author">
+            <div class="testi-avatar">👨</div>
+            <div><div class="testi-name">Thomas R.</div><div class="testi-role">Fondateur · StartupX</div></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">« Un vrai partenaire, pas juste un prestataire. Alex comprend les enjeux business et livre des interfaces qui convertissent. »</p>
+          <div class="testi-author">
+            <div class="testi-avatar">👩</div>
+            <div><div class="testi-name">Leila K.</div><div class="testi-role">CMO · AgencePulse</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <span class="section-label reveal">Contact</span>
+    <h2 class="section-title reveal">Démarrons un <span style="color:var(--accent)">projet</span></h2>
+    <div class="contact-inner">
+      <div class="contact-info reveal">
+        <p>Vous avez un projet en tête ? Je suis disponible pour des missions freelance, des partenariats ou simplement un café virtuel.</p>
+        <div class="contact-links">
+          <a href="mailto:hello@alex.dev" class="contact-link">
+            <span class="icon">✉️</span>
+            hello@alex.dev
+          </a>
+          <a href="#" class="contact-link">
+            <span class="icon">💼</span>
+            linkedin.com/in/alexdev
+          </a>
+          <a href="#" class="contact-link">
+            <span class="icon">🐱</span>
+            github.com/alexdev
+          </a>
+          <a href="#" class="contact-link">
+            <span class="icon">🐦</span>
+            @alexdev
+          </a>
+        </div>
+      </div>
+      <form class="contact-form reveal reveal-delay-1" onsubmit="return false">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Prénom</label>
+            <input type="text" placeholder="Marie" />
+          </div>
+          <div class="form-group">
+            <label>Nom</label>
+            <input type="text" placeholder="Dupont" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="marie@exemple.com" />
+        </div>
+        <div class="form-group">
+          <label>Sujet</label>
+          <input type="text" placeholder="Développement d'application web" />
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Décrivez votre projet..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">
+          Envoyer le message ✈️
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Alex.dev</div>
+    <div class="footer-copy">© 2024 Alex.dev — Tous droits réservés</div>
+    <div class="footer-links">
+      <a href="#hero">Haut de page</a>
+      <a href="#projects">Projets</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+
+  <script src="js/script.js" ></script>
 </body>
-
-<footer>
-    <p class="copyright-text">© Copyright 2026 _______ </p>
-</footer>
-
-<!-- Our codes -->
-<script src="js/main.js"></script>
+</html>
