@@ -373,7 +373,8 @@
     /* ── CONTACT ── */
     #contact { background: var(--bg2); }
     .contact-inner {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 64px;
+      display: grid; grid-template-columns: 3fr ; gap: 80px; align-items: start; margin-top: 64px;
+       justify-content:center"
     }
     .contact-info p { color: var(--muted); font-weight: 300; line-height: 1.8; margin-bottom: 36px; }
     .contact-links { display: flex; flex-direction: column; gap: 16px; }
