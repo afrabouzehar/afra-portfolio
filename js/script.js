@@ -1,354 +1,287 @@
 /* ============================================================
-   AFRA BOUZEHAR — PORTFOLIO JAVASCRIPT
-   Features:
-   - Hero typing animation
-   - Scroll-triggered fade animations
-   - Skill bar fill animation
-   - Sticky navbar + scroll-to-top
-   - Dark / Light mode toggle
-   - Mobile navigation toggle
-   - Contact form validation
+   AFRA BOUZEHAR — PORTFOLIO v2 · script.js
+   Features: Custom cursor, theme toggle, navbar, mobile nav,
+   hero reveals, typing effect, scroll animations,
+   skill bar fill, scroll-to-top, form validation
    ============================================================ */
 
-/* ─── 1. DOM READY ─────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
+  initCursor();
   initTheme();
   initNavbar();
   initMobileNav();
   initHeroReveal();
-  initTypingEffect();
-  initScrollAnimations();
+  initTyping();
+  initScrollObserver();
   initSkillBars();
-  initScrollToTop();
-  initContactForm();
+  initScrollTop();
+  initForm();
 });
 
-/* ─── 2. THEME (DARK / LIGHT MODE) ─────────────────────────── */
-function initTheme() {
-  const toggle = document.getElementById('themeToggle');
-  const html   = document.documentElement;
+/* ── CUSTOM CURSOR ── */
+function initCursor() {
+  const dot = document.getElementById('cursorDot');
+  if (!dot || window.matchMedia('(hover: none)').matches) return;
 
-  // Load saved preference or default to dark
-  const saved = localStorage.getItem('theme') || 'dark';
-  html.setAttribute('data-theme', saved);
+  let mx = -100, my = -100;
+  let cx = -100, cy = -100;
 
-  toggle.addEventListener('click', () => {
-    const current = html.getAttribute('data-theme');
-    const next    = current === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+  // Smooth lag follow
+  function loop() {
+    cx += (mx - cx) * 0.18;
+    cy += (my - cy) * 0.18;
+    dot.style.left = cx + 'px';
+    dot.style.top  = cy + 'px';
+    requestAnimationFrame(loop);
+  }
+  loop();
+
+  // Grow on interactive elements
+  document.querySelectorAll('a, button, input, textarea').forEach(el => {
+    el.addEventListener('mouseenter', () => { dot.style.transform = 'translate(-50%,-50%) scale(3)'; dot.style.opacity = '.5'; });
+    el.addEventListener('mouseleave', () => { dot.style.transform = 'translate(-50%,-50%) scale(1)'; dot.style.opacity = '1'; });
   });
 }
 
-/* ─── 3. STICKY NAVBAR ──────────────────────────────────────── */
+/* ── THEME TOGGLE ── */
+function initTheme() {
+  const btn  = document.getElementById('themeToggle');
+  const html = document.documentElement;
+  const saved = localStorage.getItem('abTheme') || 'light';
+
+  html.setAttribute('data-theme', saved);
+
+  btn.addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('abTheme', next);
+  });
+}
+
+/* ── STICKY NAVBAR ── */
 function initNavbar() {
-  const navbar = document.getElementById('navbar');
+  const nav = document.getElementById('navbar');
 
-  // Add/remove 'scrolled' class for frosted glass effect
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  }, { passive: true });
+  const onScroll = () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  };
 
-  // Highlight active nav link based on scroll position
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Highlight active section in nav
   const sections  = document.querySelectorAll('section[id]');
   const navLinks  = document.querySelectorAll('.nav-link');
+  const navH      = () => document.getElementById('navbar').offsetHeight;
 
   window.addEventListener('scroll', () => {
     let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      if (window.scrollY >= sectionTop) {
-        current = section.getAttribute('id');
-      }
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - navH() - 60) current = s.id;
     });
-
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
+    navLinks.forEach(l => {
+      l.classList.toggle('active', l.getAttribute('href') === `#${current}`);
     });
   }, { passive: true });
 }
 
-/* ─── 4. MOBILE NAVIGATION ─────────────────────────────────── */
+/* ── MOBILE NAVIGATION ── */
 function initMobileNav() {
-  const hamburger = document.getElementById('hamburger');
-  const navLinks  = document.getElementById('navLinks');
+  const ham   = document.getElementById('hamburger');
+  const links = document.getElementById('navLinks');
 
-  // Toggle menu
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    navLinks.classList.toggle('open');
-    // Prevent body scroll when menu is open
-    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+  ham.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    ham.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
   });
 
-  // Close on nav link click
-  navLinks.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('open');
-      navLinks.classList.remove('open');
+  links.querySelectorAll('.nav-link').forEach(l => {
+    l.addEventListener('click', () => {
+      links.classList.remove('open');
+      ham.classList.remove('open');
       document.body.style.overflow = '';
     });
   });
 }
 
-/* ─── 5. HERO REVEAL ANIMATION ─────────────────────────────── */
+/* ── HERO REVEAL (load animations) ── */
 function initHeroReveal() {
-  const revealEls = document.querySelectorAll('.reveal');
-
-  // Stagger each element in as page loads
-  revealEls.forEach(el => {
-    el.classList.add('active');
-  });
+  // Slight delay so fonts load, then kick off reveals
+  setTimeout(() => {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }, 80);
 }
 
-/* ─── 6. TYPING EFFECT ──────────────────────────────────────── */
-function initTypingEffect() {
-  const el       = document.getElementById('typedText');
+/* ── TYPING EFFECT ── */
+function initTyping() {
+  const el = document.getElementById('typedText');
   if (!el) return;
 
-  // Phrases to cycle through
-  const phrases  = [
-    'Software Design & Development Student',
+  const phrases = [
     'Aspiring Full-Stack Developer',
-    'UI/UX Enthusiast',
-    'Problem Solver & Code Lover',
+    'Software Design & Dev Student',
+    'Frontend Craft Enthusiast',
+    'Builder of Things on the Web',
   ];
 
-  let phraseIndex = 0;
-  let charIndex   = 0;
-  let isDeleting  = false;
-  let pauseTimer  = null;
+  let pi = 0, ci = 0, deleting = false;
 
-  const TYPING_SPEED  = 65;   // ms per character when typing
-  const DELETING_SPEED = 35;  // ms per character when deleting
-  const PAUSE_END     = 2000; // pause after full phrase
-  const PAUSE_START   = 400;  // pause before typing next phrase
+  const TYPE_SPEED   = 60;
+  const DELETE_SPEED = 32;
+  const PAUSE_AFTER  = 2200;
+  const PAUSE_BEFORE = 350;
 
-  function type() {
-    const current = phrases[phraseIndex];
+  function tick() {
+    const phrase = phrases[pi];
 
-    if (!isDeleting) {
-      // Add a character
-      el.textContent = current.substring(0, charIndex + 1);
-      charIndex++;
-
-      if (charIndex === current.length) {
-        // Reached end — pause, then start deleting
-        isDeleting = true;
-        pauseTimer = setTimeout(type, PAUSE_END);
+    if (!deleting) {
+      el.textContent = phrase.slice(0, ++ci);
+      if (ci === phrase.length) {
+        deleting = true;
+        setTimeout(tick, PAUSE_AFTER);
         return;
       }
     } else {
-      // Remove a character
-      el.textContent = current.substring(0, charIndex - 1);
-      charIndex--;
-
-      if (charIndex === 0) {
-        // All deleted — move to next phrase
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        pauseTimer = setTimeout(type, PAUSE_START);
+      el.textContent = phrase.slice(0, --ci);
+      if (ci === 0) {
+        deleting = false;
+        pi = (pi + 1) % phrases.length;
+        setTimeout(tick, PAUSE_BEFORE);
         return;
       }
     }
 
-    const speed = isDeleting ? DELETING_SPEED : TYPING_SPEED;
-    setTimeout(type, speed);
+    setTimeout(tick, deleting ? DELETE_SPEED : TYPE_SPEED);
   }
 
-  // Small initial delay so hero animations settle first
-  setTimeout(type, 1200);
+  // Start after hero reveals settle
+  setTimeout(tick, 1100);
 }
 
-/* ─── 7. SCROLL-TRIGGERED ANIMATIONS ───────────────────────── */
-function initScrollAnimations() {
-  const fadeEls = document.querySelectorAll('.fade-up');
+/* ── SCROLL OBSERVER (fade-up elements) ── */
+function initScrollObserver() {
+  const els = document.querySelectorAll('.fade-up');
+  if (!els.length) return;
 
-  if (!fadeEls.length) return;
-
-  // Use IntersectionObserver for performance
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        // Stop observing after animating (one-time)
-        observer.unobserve(entry.target);
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
       }
     });
-  }, {
-    threshold: 0.1,      // Trigger when 10% visible
-    rootMargin: '0px 0px -40px 0px' // Slightly before bottom of viewport
-  });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
-  fadeEls.forEach(el => observer.observe(el));
+  els.forEach(el => obs.observe(el));
 }
 
-/* ─── 8. SKILL BAR ANIMATION ────────────────────────────────── */
+/* ── SKILL BAR FILL ANIMATION ── */
 function initSkillBars() {
-  const fills = document.querySelectorAll('.skill-fill');
-
+  const fills = document.querySelectorAll('.sk-fill');
   if (!fills.length) return;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const fill    = entry.target;
-        const percent = fill.getAttribute('data-fill');
-
-        // Small delay for a staggered feel
-        setTimeout(() => {
-          fill.style.width = percent + '%';
-        }, 200);
-
-        observer.unobserve(fill);
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const w = e.target.getAttribute('data-w');
+        setTimeout(() => { e.target.style.width = w + '%'; }, 150);
+        obs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.6 });
 
-  fills.forEach(fill => observer.observe(fill));
+  fills.forEach(f => obs.observe(f));
 }
 
-/* ─── 9. SCROLL TO TOP BUTTON ───────────────────────────────── */
-function initScrollToTop() {
-  const btn = document.getElementById('scrollTop');
+/* ── SCROLL TO TOP ── */
+function initScrollTop() {
+  const btn = document.getElementById('toTop');
+  if (!btn) return;
 
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) {
-      btn.classList.add('visible');
-    } else {
-      btn.classList.remove('visible');
-    }
+    btn.classList.toggle('show', window.scrollY > 500);
   }, { passive: true });
 
-  btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
 
-/* ─── 10. CONTACT FORM VALIDATION ───────────────────────────── */
-function initContactForm() {
-  const form         = document.getElementById('contactForm');
+/* ── CONTACT FORM VALIDATION ── */
+function initForm() {
+  const form = document.getElementById('contactForm');
   if (!form) return;
 
-  const nameInput    = document.getElementById('name');
-  const emailInput   = document.getElementById('email');
-  const messageInput = document.getElementById('message');
-  const nameError    = document.getElementById('nameError');
-  const emailError   = document.getElementById('emailError');
-  const messageError = document.getElementById('messageError');
-  const successMsg   = document.getElementById('formSuccess');
+  const fn   = document.getElementById('fn');
+  const fe   = document.getElementById('fe');
+  const fm   = document.getElementById('fm');
+  const fnE  = document.getElementById('fnErr');
+  const feE  = document.getElementById('feErr');
+  const fmE  = document.getElementById('fmErr');
+  const btn  = document.getElementById('fBtn');
+  const btxt = document.getElementById('fBtnTxt');
+  const ok   = document.getElementById('fOk');
 
-  // ── Helper: show/clear error ──
-  function setError(input, errorEl, message) {
-    errorEl.textContent = message;
-    if (message) {
-      input.classList.add('error');
-    } else {
-      input.classList.remove('error');
-    }
-  }
+  // Clear error on input
+  const clearErr = (input, errEl) => {
+    input.addEventListener('input', () => {
+      input.classList.remove('err');
+      errEl.textContent = '';
+    });
+  };
+  clearErr(fn, fnE); clearErr(fe, feE); clearErr(fm, fmE);
 
-  // ── Validate email format ──
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
+  const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
-  // ── Live validation: clear error as user types ──
-  nameInput.addEventListener('input', () => {
-    if (nameInput.value.trim().length >= 2) setError(nameInput, nameError, '');
-  });
+  const setErr = (input, errEl, msg) => {
+    errEl.textContent = msg;
+    input.classList.toggle('err', !!msg);
+    return !msg;
+  };
 
-  emailInput.addEventListener('input', () => {
-    if (isValidEmail(emailInput.value.trim())) setError(emailInput, emailError, '');
-  });
+  form.addEventListener('submit', e => {
+    e.preventDefault();
 
-  messageInput.addEventListener('input', () => {
-    if (messageInput.value.trim().length >= 10) setError(messageInput, messageError, '');
-  });
+    const name = fn.value.trim();
+    const mail = fe.value.trim();
+    const msg  = fm.value.trim();
 
-  // ── Form submit ──
-  form.addEventListener('submit', (e) => {
-    e.preventDefault(); // Prevent actual submission (demo only)
+    let valid = true;
 
-    const name    = nameInput.value.trim();
-    const email   = emailInput.value.trim();
-    const message = messageInput.value.trim();
-    let valid     = true;
+    // Validate each field
+    if (name.length < 2) { setErr(fn, fnE, 'Please enter your name (min. 2 characters).'); valid = false; }
+    else setErr(fn, fnE, '');
 
-    // Validate name
-    if (name.length < 2) {
-      setError(nameInput, nameError, 'Please enter your full name (at least 2 characters).');
-      valid = false;
-    } else {
-      setError(nameInput, nameError, '');
-    }
+    if (!mail)           { setErr(fe, feE, 'Email is required.'); valid = false; }
+    else if (!emailOk(mail)) { setErr(fe, feE, 'Enter a valid email address.'); valid = false; }
+    else setErr(fe, feE, '');
 
-    // Validate email
-    if (!email) {
-      setError(emailInput, emailError, 'Email address is required.');
-      valid = false;
-    } else if (!isValidEmail(email)) {
-      setError(emailInput, emailError, 'Please enter a valid email address.');
-      valid = false;
-    } else {
-      setError(emailInput, emailError, '');
-    }
-
-    // Validate message
-    if (message.length < 10) {
-      setError(messageInput, messageError, 'Message must be at least 10 characters long.');
-      valid = false;
-    } else {
-      setError(messageInput, messageError, '');
-    }
+    if (msg.length < 10) { setErr(fm, fmE, 'Message must be at least 10 characters.'); valid = false; }
+    else setErr(fm, fmE, '');
 
     if (!valid) return;
 
-    // ── All valid: simulate sending ──
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const btnText   = submitBtn.querySelector('.btn-text');
+    // Simulate sending
+    btxt.textContent = 'Sending...';
+    btn.disabled = true;
 
-    // Loading state
-    btnText.textContent = 'Sending...';
-    submitBtn.disabled  = true;
-
-    // Simulate async (e.g., API call)
     setTimeout(() => {
       form.reset();
-      submitBtn.disabled  = false;
-      btnText.textContent = 'Send Message';
-
-      // Show success message
-      successMsg.classList.add('visible');
-
-      // Auto-hide after 5s
-      setTimeout(() => successMsg.classList.remove('visible'), 5000);
-    }, 1200);
+      btn.disabled = false;
+      btxt.textContent = 'Send Message';
+      ok.classList.add('show');
+      setTimeout(() => ok.classList.remove('show'), 5000);
+    }, 1100);
   });
 }
 
-/* ─── 11. SMOOTH ANCHOR SCROLLING ───────────────────────────── */
-// Enhance all anchor links with smooth scroll + offset for fixed navbar
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const target = document.querySelector(this.getAttribute('href'));
+/* ── SMOOTH ANCHOR SCROLL (offset for sticky nav) ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
     if (!target) return;
-
     e.preventDefault();
-
-    const navHeight = document.getElementById('navbar').offsetHeight;
-    const targetPos = target.getBoundingClientRect().top + window.scrollY - navHeight;
-
-    window.scrollTo({
-      top: targetPos,
-      behavior: 'smooth'
-    });
+    const navH = document.getElementById('navbar').offsetHeight;
+    window.scrollTo({ top: target.offsetTop - navH, behavior: 'smooth' });
   });
 });
