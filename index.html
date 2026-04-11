@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,133 +7,149 @@
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- CURSOR -->
-  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
-
   <!-- ── NAVBAR ── -->
   <nav class="navbar" id="navbar">
-    <a href="#home" class="nav-logo">Afra<span class="acc">/</span>B</a>
+    <a href="#home" class="nav-logo">
+      <span class="logo-icon">◆</span>
+      <span>Afra<span class="logo-accent">.</span></span>
+    </a>
 
     <ul class="nav-links" id="navLinks">
-      <li><a href="#about"     class="nav-link"><em>01</em>About</a></li>
-      <li><a href="#skills"    class="nav-link"><em>02</em>Skills</a></li>
-      <li><a href="#projects"  class="nav-link"><em>03</em>Projects</a></li>
-      <li><a href="#languages" class="nav-link"><em>04</em>Languages</a></li>
-      <li><a href="#contact"   class="nav-link"><em>05</em>Contact</a></li>
+      <li><a href="#about"     class="nav-link">About</a></li>
+      <li><a href="#skills"    class="nav-link">Skills</a></li>
+      <li><a href="#projects"  class="nav-link">Projects</a></li>
+      <li><a href="#languages" class="nav-link">Languages</a></li>
+      <li><a href="#contact"   class="nav-link">Contact</a></li>
     </ul>
 
     <div class="nav-right">
       <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">
-        <span class="t-l">☀ Light</span>
-        <span class="t-d">☽ Dark</span>
+        <span class="t-d">☀ Light</span>
+        <span class="t-l">☽ Dark</span>
       </button>
       <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <!-- ── HERO ── -->
   <section class="hero" id="home">
-    <div class="hero-bg-letters" aria-hidden="true">AB</div>
+    <!-- Background noise texture -->
+    <div class="hero-noise" aria-hidden="true"></div>
 
-    <div class="hero-inner">
-      <div class="hero-text">
-        <p class="hero-eyebrow reveal r1">✦ &thinsp;Software Design & Development</p>
-        <h1 class="hero-name">
-          <span class="reveal r2">Afra</span>
-          <span class="reveal r3 accent-line">BOUZEHAR</span>
+    <div class="container hero-container">
+      <!-- Left: text content -->
+      <div class="hero-content">
+        <div class="hero-badge reveal r1">
+          <span class="badge-dot"></span>
+          Available for work
+        </div>
+
+        <h1 class="hero-title">
+          <span class="reveal r2">Hi, I'm <span class="name-highlight">Afra</span></span>
+          <span class="reveal r3">BOUZEHAR</span>
         </h1>
-        <p class="hero-typed reveal r4">
-          <span id="typedText"></span><span class="cursor" aria-hidden="true">_</span>
+
+        <p class="hero-sub reveal r4">
+          <span id="typedText"></span><span class="cursor">|</span>
         </p>
-        <div class="hero-btns reveal r5">
-          <a href="#projects" class="btn-main">See my work <span>→</span></a>
-          <a href="#contact"  class="btn-ghost">Get in touch</a>
+
+        <p class="hero-desc reveal r5">
+          Software design & development student from Morocco, passionate about building clean, functional web experiences.
+        </p>
+
+        <div class="hero-actions reveal r5">
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="#contact"  class="btn-outline">Get in Touch</a>
         </div>
       </div>
 
-      <div class="hero-card reveal r4" aria-hidden="true">
-        <div class="hc-line"><span class="mono hc-k">Status</span><span class="hc-v status-dot">Available</span></div>
-        <div class="hc-line"><span class="mono hc-k">Location</span><span class="hc-v">Morocco 🇲🇦</span></div>
-        <div class="hc-line"><span class="mono hc-k">Focus</span><span class="hc-v">Full-Stack Dev</span></div>
-        <div class="hc-line"><span class="mono hc-k">Live</span>
-          <a href="https://afra-bouzehar.vercel.app" target="_blank" rel="noopener" class="hc-link">afra-bouzehar.vercel.app ↗</a>
+      <!-- Right: info card -->
+      <div class="hero-card reveal r4">
+        <div class="card-header">
+          <span class="card-title">Quick Info</span>
+          <span class="card-dot"></span>
         </div>
-        <div class="hc-deco" aria-hidden="true">
-          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="46" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 6"/>
-            <circle cx="50" cy="50" r="28" stroke="currentColor" stroke-width="0.5"/>
-            <line x1="4" y1="50" x2="96" y2="50" stroke="currentColor" stroke-width="0.5"/>
-            <line x1="50" y1="4" x2="50" y2="96" stroke="currentColor" stroke-width="0.5"/>
-            <circle cx="50" cy="50" r="4" fill="currentColor"/>
-            <circle cx="50" cy="4"  r="2.5" fill="currentColor"/>
-          </svg>
+        <div class="card-body">
+          <div class="card-row">
+            <span class="card-label">Status</span>
+            <span class="card-value">
+              <span class="status-live"></span>
+              Available
+            </span>
+          </div>
+          <div class="card-row">
+            <span class="card-label">Location</span>
+            <span class="card-value">Morocco 🇲🇦</span>
+          </div>
+          <div class="card-row">
+            <span class="card-label">Focus</span>
+            <span class="card-value">Full-Stack Dev</span>
+          </div>
+          <div class="card-row">
+            <span class="card-label">Portfolio</span>
+            <a href="https://afra-bouzehar.vercel.app" target="_blank" rel="noopener" class="card-link">
+              Live Site ↗
+            </a>
+          </div>
+        </div>
+        <div class="card-footer">
+          Open to internships & collaborations
         </div>
       </div>
     </div>
 
-    <div class="hero-scroll" aria-hidden="true">
-      <span class="mono">scroll</span>
-      <span class="scroll-track"><span class="scroll-thumb"></span></span>
+    <!-- Scroll indicator -->
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
     </div>
   </section>
 
   <!-- ── ABOUT ── -->
-  <section class="sec about" id="about">
+  <section class="section" id="about">
     <div class="container">
-      <p class="sec-tag fade-up"><span class="mono">01 —</span> About Me</p>
+      <div class="section-label fade-up">01 — About Me</div>
 
       <div class="about-grid">
-        <div class="about-img-wrap fade-up">
-          <div class="about-img-box">
-            <!-- Ring + initials wrapped together -->
-            <div class="av-ring-wrap">
-              <svg class="av-ring" viewBox="0 0 140 140" fill="none">
-                <circle cx="70" cy="70" r="65" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 9"/>
-                <circle cx="70" cy="5" r="3.5" fill="currentColor"/>
-              </svg>
-              <span class="av-letters">A·B</span>
+        <div class="about-card fade-up">
+          <div class="about-avatar">
+            <span class="avatar-text">A·B</span>
+            <div class="avatar-ring"></div>
+          </div>
+          <div class="about-tag">Student · Developer · Creator</div>
+          <div class="about-stats">
+            <div class="astat">
+              <strong>3+</strong>
+              <span>Projects</span>
             </div>
-            <div class="av-divider"></div>
-            <div class="av-tag">Student · Developer · Creator</div>
-            <!-- Mini stats inside the card -->
-            <div class="av-stats">
-              <div class="av-stat">
-                <span class="av-stat-n">3+</span>
-                <span class="av-stat-l">Projects</span>
-              </div>
-              <div class="av-stat">
-                <span class="av-stat-n">5+</span>
-                <span class="av-stat-l">Languages</span>
-              </div>
-              <div class="av-stat">
-                <span class="av-stat-n">🇲🇦</span>
-                <span class="av-stat-l">Morocco</span>
-              </div>
-              <div class="av-stat">
-                <span class="av-stat-n">∞</span>
-                <span class="av-stat-l">Curiosity</span>
-              </div>
+            <div class="astat">
+              <strong>5</strong>
+              <span>Languages</span>
+            </div>
+            <div class="astat">
+              <strong>∞</strong>
+              <span>Curiosity</span>
             </div>
           </div>
         </div>
 
-        <div class="about-content">
-          <h2 class="sec-h2 fade-up">The person<br/><em>behind the code.</em></h2>
-          <p class="body-p fade-up">Hi, I'm <strong>Afra</strong> — a software design and development student driven by curiosity and a love for building things on the web. I believe great software lives at the intersection of clean code and thoughtful design.</p>
-          <p class="body-p fade-up">I'm constantly pushing my limits — learning new technologies, contributing to community projects, and designing interfaces from scratch. I bring <strong>autonomy, creativity, and a strong sense of initiative</strong> to everything I build.</p>
-          <p class="body-p fade-up">My live portfolio: <a href="https://afra-bouzehar.vercel.app" target="_blank" rel="noopener" class="text-link">afra-bouzehar.vercel.app ↗</a></p>
-          <div class="pill-row fade-up">
-            <span class="pill">Team Player</span>
-            <span class="pill">Self-Taught</span>
-            <span class="pill">Fast Learner</span>
-            <span class="pill">Detail-Oriented</span>
-            <span class="pill">Problem Solver</span>
+        <div class="about-text">
+          <h2 class="section-title fade-up">The person behind the code.</h2>
+          <p class="text-body fade-up">Hi, I'm <strong>Afra</strong> — a software design and development student driven by curiosity and a love for building things on the web. I believe great software lives at the intersection of clean code and thoughtful design.</p>
+          <p class="text-body fade-up">I'm constantly pushing my limits — learning new technologies, contributing to community projects, and designing interfaces from scratch. I bring <strong>autonomy, creativity, and initiative</strong> to everything I build.</p>
+          <div class="trait-chips fade-up">
+            <span>Team Player</span>
+            <span>Fast Learner</span>
+            <span>Detail-Oriented</span>
+            <span>Problem Solver</span>
+            <span>Self-Taught</span>
           </div>
         </div>
       </div>
@@ -141,58 +157,79 @@
   </section>
 
   <!-- ── SKILLS ── -->
-  <section class="sec skills" id="skills">
+  <section class="section section-alt" id="skills">
     <div class="container">
-      <p class="sec-tag fade-up"><span class="mono">02 —</span> Technical Skills</p>
-      <h2 class="sec-h2 fade-up">What I work with.</h2>
+      <div class="section-label fade-up">02 — Skills</div>
+      <h2 class="section-title fade-up">What I work with.</h2>
 
-      <div class="skills-wrap">
-        <!-- Skill bars column -->
-        <div class="sk-bars fade-up">
-          <div class="sk-cat">
-            <div class="sk-cat-name mono">Web Development</div>
-            <div class="sk-row"><div class="sk-meta"><span>HTML5</span><span class="mono sk-pct">95%</span></div><div class="sk-track"><div class="sk-fill" data-w="95"></div></div></div>
-            <div class="sk-row"><div class="sk-meta"><span>CSS3</span><span class="mono sk-pct">90%</span></div><div class="sk-track"><div class="sk-fill" data-w="90"></div></div></div>
-            <div class="sk-row"><div class="sk-meta"><span>JavaScript</span><span class="mono sk-pct">80%</span></div><div class="sk-track"><div class="sk-fill" data-w="80"></div></div></div>
-            <div class="sk-row"><div class="sk-meta"><span>PHP</span><span class="mono sk-pct">70%</span></div><div class="sk-track"><div class="sk-fill" data-w="70"></div></div></div>
+      <div class="skills-layout">
+        <!-- Bars -->
+        <div class="skill-bars fade-up">
+          <div class="skill-group">
+            <div class="skill-group-name">Web Development</div>
+            <div class="skill-item">
+              <div class="skill-meta"><span>HTML5</span><span>95%</span></div>
+              <div class="skill-track"><div class="skill-fill" data-w="95"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta"><span>CSS3</span><span>90%</span></div>
+              <div class="skill-track"><div class="skill-fill" data-w="90"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta"><span>JavaScript</span><span>80%</span></div>
+              <div class="skill-track"><div class="skill-fill" data-w="80"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta"><span>PHP</span><span>70%</span></div>
+              <div class="skill-track"><div class="skill-fill" data-w="70"></div></div>
+            </div>
           </div>
-          <div class="sk-cat">
-            <div class="sk-cat-name mono">Programming</div>
-            <div class="sk-row"><div class="sk-meta"><span>Python</span><span class="mono sk-pct">75%</span></div><div class="sk-track"><div class="sk-fill" data-w="75"></div></div></div>
-            <div class="sk-row"><div class="sk-meta"><span>C / C++</span><span class="mono sk-pct">65%</span></div><div class="sk-track"><div class="sk-fill" data-w="65"></div></div></div>
-            <div class="sk-row"><div class="sk-meta"><span>SQL</span><span class="mono sk-pct">72%</span></div><div class="sk-track"><div class="sk-fill" data-w="72"></div></div></div>
-          </div>
-          <div class="sk-cat">
-            <div class="sk-cat-name mono">Databases</div>
-            <div class="sk-row"><div class="sk-meta"><span>MySQL</span><span class="mono sk-pct">78%</span></div><div class="sk-track"><div class="sk-fill" data-w="78"></div></div></div>
-            <div class="sk-row"><div class="sk-meta"><span>PostgreSQL</span><span class="mono sk-pct">60%</span></div><div class="sk-track"><div class="sk-fill" data-w="60"></div></div></div>
+
+          <div class="skill-group">
+            <div class="skill-group-name">Programming</div>
+            <div class="skill-item">
+              <div class="skill-meta"><span>Python</span><span>75%</span></div>
+              <div class="skill-track"><div class="skill-fill" data-w="75"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta"><span>C / C++</span><span>65%</span></div>
+              <div class="skill-track"><div class="skill-fill" data-w="65"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta"><span>SQL</span><span>72%</span></div>
+              <div class="skill-track"><div class="skill-fill" data-w="72"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta"><span>MySQL / PostgreSQL</span><span>70%</span></div>
+              <div class="skill-track"><div class="skill-fill" data-w="70"></div></div>
+            </div>
           </div>
         </div>
 
-        <!-- Tag clouds column -->
-        <div class="sk-tags-col fade-up">
-          <div class="sk-tag-sec">
-            <div class="sk-tag-head mono">Tools & Environment</div>
-            <div class="tags-row">
-              <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">VS Code</span>
-              <span class="tag">Vercel</span><span class="tag">Linux/Unix</span><span class="tag">CLI</span>
+        <!-- Tags -->
+        <div class="skill-tags-col fade-up">
+          <div class="tag-group">
+            <div class="tag-group-name">Tools</div>
+            <div class="tag-wrap">
+              <span class="stag">Git</span><span class="stag">GitHub</span>
+              <span class="stag">VS Code</span><span class="stag">Vercel</span>
+              <span class="stag">Linux / Unix</span><span class="stag">CLI</span>
             </div>
           </div>
-          <div class="sk-tag-sec">
-            <div class="sk-tag-head mono">Practices</div>
-            <div class="tags-row">
-              <span class="tag t2">Responsive Design</span><span class="tag t2">REST APIs</span>
-              <span class="tag t2">OOP</span><span class="tag t2">MVC</span>
-              <span class="tag t2">Agile / Scrum</span><span class="tag t2">Frontend Best Practices</span>
+          <div class="tag-group">
+            <div class="tag-group-name">Practices</div>
+            <div class="tag-wrap">
+              <span class="stag t2">Responsive Design</span><span class="stag t2">REST APIs</span>
+              <span class="stag t2">OOP</span><span class="stag t2">MVC</span>
+              <span class="stag t2">Agile / Scrum</span><span class="stag t2">Frontend Best Practices</span>
             </div>
           </div>
-          <div class="sk-tag-sec">
-            <div class="sk-tag-head mono">Soft Skills</div>
-            <div class="tags-row">
-              <span class="tag t3">Communication</span><span class="tag t3">Team Coordination</span>
-              <span class="tag t3">Time Management</span><span class="tag t3">Project Management</span>
-              <span class="tag t3">Mentoring</span><span class="tag t3">Adaptability</span>
-              <span class="tag t3">Initiative</span><span class="tag t3">Creativity</span>
+          <div class="tag-group">
+            <div class="tag-group-name">Soft Skills</div>
+            <div class="tag-wrap">
+              <span class="stag t3">Communication</span><span class="stag t3">Team Work</span>
+              <span class="stag t3">Time Management</span><span class="stag t3">Mentoring</span>
+              <span class="stag t3">Adaptability</span><span class="stag t3">Creativity</span>
             </div>
           </div>
         </div>
@@ -201,193 +238,183 @@
   </section>
 
   <!-- ── PROJECTS ── -->
-  <section class="sec projects" id="projects">
+  <section class="section" id="projects">
     <div class="container">
-      <p class="sec-tag fade-up"><span class="mono">03 —</span> Projects</p>
-      <h2 class="sec-h2 fade-up">Selected works.</h2>
+      <div class="section-label fade-up">03 — Projects</div>
+      <h2 class="section-title fade-up">Selected works.</h2>
 
-      <div class="proj-list">
+      <div class="projects-grid">
 
-        <article class="proj-row fade-up">
-          <div class="proj-idx mono">01</div>
-          <div class="proj-info">
-            <div class="proj-top">
-              <h3 class="proj-name">My Portfolio</h3>
-              <span class="badge live">● Live</span>
-            </div>
-            <p class="proj-desc">Personal web portfolio presenting my projects and technical skills. Built entirely with HTML, CSS and vanilla JavaScript — no frameworks, pure handcrafted code. Deployed on Vercel.</p>
-            <div class="proj-techs">
-              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Vercel</span>
-            </div>
+        <div class="project-card fade-up">
+          <div class="project-top">
+            <span class="project-num">01</span>
+            <span class="project-status live">● Live</span>
           </div>
-          <div class="proj-actions">
-            <a href="https://afra-bouzehar.vercel.app" target="_blank" rel="noopener" class="pa-primary">Live ↗</a>
-            <a href="#" class="pa-ghost">GitHub ↗</a>
+          <h3 class="project-name">My Portfolio</h3>
+          <p class="project-desc">Personal web portfolio presenting my projects and technical skills. Built entirely with HTML, CSS and JavaScript — no frameworks, pure handcrafted code. Deployed on Vercel.</p>
+          <div class="project-stack">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Vercel</span>
           </div>
-        </article>
+          <div class="project-links">
+            <a href="https://afra-bouzehar.vercel.app" target="_blank" rel="noopener" class="plink-main">Live Site ↗</a>
+            <a href="#" class="plink-sec">GitHub ↗</a>
+          </div>
+        </div>
 
-        <article class="proj-row fade-up delay-1">
-          <div class="proj-idx mono">02</div>
-          <div class="proj-info">
-            <div class="proj-top">
-              <h3 class="proj-name">Auterrea Premium</h3>
-              <span class="badge live">● Live</span>
-            </div>
-            <p class="proj-desc">An online car rental platform with a fully responsive interface, intuitive UX, and frontend best practices throughout. Users can browse, filter, and book vehicles seamlessly.</p>
-            <div class="proj-techs">
-              <span>HTML</span><span>CSS</span><span>JavaScript</span>
-            </div>
+        <div class="project-card fade-up delay-1">
+          <div class="project-top">
+            <span class="project-num">02</span>
+            <span class="project-status live">● Live</span>
           </div>
-          <div class="proj-actions">
-            <a href="#" class="pa-primary">Live ↗</a>
-            <a href="#" class="pa-ghost">GitHub ↗</a>
+          <h3 class="project-name">Auterrea Premium</h3>
+          <p class="project-desc">An online car rental platform with a fully responsive interface, intuitive UX, and frontend best practices. Users can browse, filter, and book vehicles seamlessly.</p>
+          <div class="project-stack">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
           </div>
-        </article>
+          <div class="project-links">
+            <a href="#" class="plink-main">Live Site ↗</a>
+            <a href="#" class="plink-sec">GitHub ↗</a>
+          </div>
+        </div>
 
-        <article class="proj-row fade-up delay-2">
-          <div class="proj-idx mono">03</div>
-          <div class="proj-info">
-            <div class="proj-top">
-              <h3 class="proj-name">Devippy Community</h3>
-              <span class="badge wip">◐ In Progress</span>
-            </div>
-            <p class="proj-desc">A developer sharing and collaboration community platform. Features community design, content exchange, and a collaborative space for developers — built with a PHP backend and full frontend.</p>
-            <div class="proj-techs">
-              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span>
-            </div>
+        <div class="project-card fade-up delay-2">
+          <div class="project-top">
+            <span class="project-num">03</span>
+            <span class="project-status wip">◐ In Progress</span>
           </div>
-          <div class="proj-actions">
-            <a href="#" class="pa-primary">Preview ↗</a>
-            <a href="#" class="pa-ghost">GitHub ↗</a>
+          <h3 class="project-name">Devippy Community</h3>
+          <p class="project-desc">A developer sharing and collaboration community platform featuring content exchange, developer profiles, and a collaborative workspace built with a PHP backend.</p>
+          <div class="project-stack">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span>
           </div>
-        </article>
+          <div class="project-links">
+            <a href="#" class="plink-main">Preview ↗</a>
+            <a href="#" class="plink-sec">GitHub ↗</a>
+          </div>
+        </div>
 
       </div>
     </div>
   </section>
 
   <!-- ── LANGUAGES ── -->
-  <section class="sec languages" id="languages">
+  <section class="section section-alt" id="languages">
     <div class="container">
-      <p class="sec-tag fade-up"><span class="mono">04 —</span> Languages</p>
-      <h2 class="sec-h2 fade-up">I speak.</h2>
+      <div class="section-label fade-up">04 — Languages</div>
+      <h2 class="section-title fade-up">I speak.</h2>
 
       <div class="lang-grid">
-
         <div class="lang-card fade-up">
-          <div class="lc-top">
+          <div class="lang-top">
             <span class="lang-flag">🇲🇦</span>
-            <div>
-              <div class="lang-name">Arabic</div>
-              <div class="lang-lvl">Native language</div>
+            <div class="lang-info">
+              <span class="lang-name">Arabic</span>
+              <span class="lang-level">Native</span>
             </div>
+            <span class="lang-pct">100%</span>
           </div>
-          <div class="lang-bars">
-            <div class="lbar fill"></div><div class="lbar fill"></div>
-            <div class="lbar fill"></div><div class="lbar fill"></div><div class="lbar fill"></div>
-          </div>
+          <div class="lang-bar-track"><div class="lang-bar-fill" data-w="100"></div></div>
         </div>
 
         <div class="lang-card fade-up delay-1">
-          <div class="lc-top">
+          <div class="lang-top">
             <span class="lang-flag">🇬🇧</span>
-            <div>
-              <div class="lang-name">English</div>
-              <div class="lang-lvl">Advanced</div>
+            <div class="lang-info">
+              <span class="lang-name">English</span>
+              <span class="lang-level">Advanced</span>
             </div>
+            <span class="lang-pct">80%</span>
           </div>
-          <div class="lang-bars">
-            <div class="lbar fill"></div><div class="lbar fill"></div>
-            <div class="lbar fill"></div><div class="lbar fill"></div><div class="lbar"></div>
-          </div>
+          <div class="lang-bar-track"><div class="lang-bar-fill" data-w="80"></div></div>
         </div>
 
         <div class="lang-card fade-up delay-2">
-          <div class="lc-top">
+          <div class="lang-top">
             <span class="lang-flag">🇫🇷</span>
-            <div>
-              <div class="lang-name">French</div>
-              <div class="lang-lvl">Conversational</div>
+            <div class="lang-info">
+              <span class="lang-name">French</span>
+              <span class="lang-level">Conversational</span>
             </div>
+            <span class="lang-pct">60%</span>
           </div>
-          <div class="lang-bars">
-            <div class="lbar fill"></div><div class="lbar fill"></div>
-            <div class="lbar fill"></div><div class="lbar"></div><div class="lbar"></div>
-          </div>
+          <div class="lang-bar-track"><div class="lang-bar-fill" data-w="60"></div></div>
         </div>
 
         <div class="lang-card fade-up delay-3">
-          <div class="lc-top">
+          <div class="lang-top">
             <span class="lang-flag">🇪🇸</span>
-            <div>
-              <div class="lang-name">Spanish</div>
-              <div class="lang-lvl">Intermediate <em>(learning)</em></div>
+            <div class="lang-info">
+              <span class="lang-name">Spanish</span>
+              <span class="lang-level">Intermediate</span>
             </div>
+            <span class="lang-pct">45%</span>
           </div>
-          <div class="lang-bars">
-            <div class="lbar fill"></div><div class="lbar fill"></div>
-            <div class="lbar half"></div><div class="lbar"></div><div class="lbar"></div>
-          </div>
+          <div class="lang-bar-track"><div class="lang-bar-fill" data-w="45"></div></div>
         </div>
 
         <div class="lang-card fade-up delay-4">
-          <div class="lc-top">
+          <div class="lang-top">
             <span class="lang-flag">🇩🇪</span>
-            <div>
-              <div class="lang-name">German</div>
-              <div class="lang-lvl">Beginner <em>(learning)</em></div>
+            <div class="lang-info">
+              <span class="lang-name">German</span>
+              <span class="lang-level">Beginner</span>
             </div>
+            <span class="lang-pct">20%</span>
           </div>
-          <div class="lang-bars">
-            <div class="lbar fill"></div><div class="lbar"></div>
-            <div class="lbar"></div><div class="lbar"></div><div class="lbar"></div>
-          </div>
+          <div class="lang-bar-track"><div class="lang-bar-fill" data-w="20"></div></div>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- ── CONTACT ── -->
-  <section class="sec contact" id="contact">
+  <section class="section" id="contact">
     <div class="container">
-      <p class="sec-tag fade-up"><span class="mono">05 —</span> Contact</p>
+      <div class="section-label fade-up">05 — Contact</div>
 
-      <div class="contact-wrap">
-        <div class="contact-l fade-up">
-          <h2 class="sec-h2">Let's build<br/><em>something great.</em></h2>
-          <p class="body-p">Open to internships, collaborations, and interesting projects. Drop me a message — I'll get back to you quickly.</p>
-          <div class="c-info">
-            <div class="c-row"><span class="mono ci-icon">✉</span><span>afra.bouzehar@email.com</span></div>
-            <div class="c-row"><span class="mono ci-icon">◎</span><span>Morocco — Remote friendly</span></div>
-            <div class="c-row"><span class="mono ci-icon">⬡</span>
-              <a href="https://afra-bouzehar.vercel.app" target="_blank" rel="noopener" class="text-link">afra-bouzehar.vercel.app</a>
+      <div class="contact-layout">
+        <div class="contact-left fade-up">
+          <h2 class="section-title">Let's work<br/>together.</h2>
+          <p class="text-body">Open to internships, collaborations, and interesting projects. Drop me a message and I'll get back to you.</p>
+          <div class="contact-details">
+            <div class="cd-row">
+              <span class="cd-icon">✉</span>
+              <span>bouzehar.afra@email.com</span>
+            </div>
+            <div class="cd-row">
+              <span class="cd-icon">📍</span>
+              <span>Morocco — Remote friendly</span>
+            </div>
+            <div class="cd-row">
+              <span class="cd-icon">🔗</span>
+              <a href="https://afra-bouzehar.vercel.app" target="_blank" rel="noopener" class="cd-link">afra-bouzehar.vercel.app</a>
             </div>
           </div>
         </div>
 
-        <form class="c-form fade-up delay-1" id="contactForm" novalidate>
-          <div class="f-row-2">
-            <div class="f-grp">
+        <form class="contact-form fade-up" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
               <label for="fn">Name</label>
-              <input type="text" id="fn" placeholder="Your name" autocomplete="off"/>
-              <span class="f-err" id="fnErr"></span>
+              <input type="text" id="fn" placeholder="Your full name" autocomplete="off"/>
+              <span class="form-err" id="fnErr"></span>
             </div>
-            <div class="f-grp">
+            <div class="form-group">
               <label for="fe">Email</label>
               <input type="email" id="fe" placeholder="your@email.com" autocomplete="off"/>
-              <span class="f-err" id="feErr"></span>
+              <span class="form-err" id="feErr"></span>
             </div>
           </div>
-          <div class="f-grp">
+          <div class="form-group">
             <label for="fm">Message</label>
-            <textarea id="fm" rows="5" placeholder="Tell me about your project or idea..."></textarea>
-            <span class="f-err" id="fmErr"></span>
+            <textarea id="fm" rows="5" placeholder="Tell me about your project..."></textarea>
+            <span class="form-err" id="fmErr"></span>
           </div>
-          <button type="submit" class="f-send" id="fBtn">
-            <span id="fBtnTxt">Send Message</span><span class="f-arrow">→</span>
+          <button type="submit" class="btn-primary btn-send" id="fBtn">
+            <span id="fBtnTxt">Send Message</span>
+            <span>→</span>
           </button>
-          <div class="f-ok" id="fOk">✓ &nbsp;Message received! Talk soon.</div>
+          <div class="form-ok" id="fOk">✓ Message received! I'll get back to you soon.</div>
         </form>
       </div>
     </div>
@@ -395,33 +422,29 @@
 
   <!-- ── FOOTER ── -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-row">
-        <div>
-          <span class="footer-logo">Afra<span class="acc">/</span>B<span class="acc">.</span></span>
-          <p class="mono footer-copy">© 2025 Afra BOUZEHAR — All rights reserved.</p>
-        </div>
-        <div class="footer-socials">
-          <a href="#" class="soc" aria-label="GitHub">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.73.083-.73 1.205.085 1.838 1.237 1.838 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.776.42-1.305.763-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 013.003-.404c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.232 1.91 1.232 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .322.216.694.825.577C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
-          </a>
-          <a href="#" class="soc" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a href="#" class="soc" aria-label="X">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <a href="#" class="soc" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-          </a>
-        </div>
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-logo">Afra<span>.</span>BOUZEHAR</div>
+        <p class="footer-copy">© 2026 Afra BOUZEHAR — All rights reserved.</p>
+      </div>
+      <div class="footer-socials">
+        <a href="#" class="soc-btn" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.73.083-.73 1.205.085 1.838 1.237 1.838 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.776.42-1.305.763-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 013.003-.404c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.232 1.91 1.232 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .322.216.694.825.577C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="#" class="soc-btn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="#" class="soc-btn" aria-label="X">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="#" class="soc-btn" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
       </div>
     </div>
   </footer>
 
-  <!-- Scroll-to-top -->
-  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
-
+  <button class="back-to-top" id="toTop" aria-label="Back to top">↑</button>
   <script src="./js/script.js"></script>
 </body>
 </html>
