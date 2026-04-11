@@ -177,16 +177,33 @@ function initForm() {
 
     if (!valid) return;
 
-    btxt.textContent = 'Sending...';
-    btn.disabled = true;
+   btxt.textContent = 'Sending...';
+   btn.disabled = true;
+   fetch('/api/contact', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    name: fn.value,
+    email: fe.value,
+    message: fm.value
+  })
+})
+.then(res => res.json())
+.then(data => {
+  form.reset();
+  btn.disabled = false;
+  btxt.textContent = 'Send Message';
+  ok.classList.add('show');
+  setTimeout(() => ok.classList.remove('show'), 5000);
+})
+.catch(() => {
+  btxt.textContent = 'Error';
+  btn.disabled = false;
+});
 
-    setTimeout(() => {
-      form.reset();
-      btn.disabled = false;
-      btxt.textContent = 'Send Message';
-      ok.classList.add('show');
-      setTimeout(() => ok.classList.remove('show'), 5000);
-    }, 1000);
+
   });
 }
 

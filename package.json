@@ -1,0 +1,24 @@
+{
+  "name": "afra-portfolio",
+  "version": "1.0.0",
+  "description": "![GitHub commit activity](https://img.shields.io/github/commit-activity/w/afrabouzehar/afra-portfolio) ![GitHub last commit](https://img.shields.io/github/last-commit/afrabouzehar/afra-portfolio)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afrabouzehar/afra-portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/afrabouzehar/afra-portfolio/issues"
+  },
+  "homepage": "https://github.com/afrabouzehar/afra-portfolio#readme",
+  "dependencies": {
+    "nodemailer": "^8.0.5"
+  }
+}
