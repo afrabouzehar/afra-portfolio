@@ -870,8 +870,7 @@ img { display: block; max-width: 100%; }
 /* ── 11. CONTACT ──────────────────────────────────────────────── */
 .contact-layout {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 72px;
+  grid-template-columns: 1fr ;
   align-items: start;
 }
 
