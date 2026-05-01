@@ -1,6 +1,3 @@
-/* ================================================================
-   AFRA BOUZEHAR — Portfolio v4 · script.js (CLEAN FINAL FIX)
-   ================================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
@@ -188,86 +185,6 @@ function initScrollTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
-
-/* ── CONTACT FORM (EMAILJS CLEAN) ── */
-function initForm() {
-  const form = document.getElementById('contactForm');
-  if (!form) return;
-
-  const fn = document.getElementById('fn'), fnE = document.getElementById('fnErr');
-  const fe = document.getElementById('fe'), feE = document.getElementById('feErr');
-  const fm = document.getElementById('fm'), fmE = document.getElementById('fmErr');
-
-  const btn = document.getElementById('fBtn');
-  const txt = document.getElementById('fBtnTxt');
-  const ok  = document.getElementById('fOk');
-
-  const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-
-  const clearErr = (i, e) => {
-    i.addEventListener('input', () => {
-      i.classList.remove('err');
-      e.textContent = '';
-    });
-  };
-
-  clearErr(fn, fnE);
-  clearErr(fe, feE);
-  clearErr(fm, fmE);
-
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
-
-    let valid = true;
-
-    if (fn.value.trim().length < 2) {
-      fnE.textContent = 'Enter name.';
-      fn.classList.add('err');
-      valid = false;
-    }
-
-    if (!fe.value.trim() || !emailOk(fe.value)) {
-      feE.textContent = 'Valid email required.';
-      fe.classList.add('err');
-      valid = false;
-    }
-
-    if (fm.value.trim().length < 10) {
-      fmE.textContent = 'Message too short.';
-      fm.classList.add('err');
-      valid = false;
-    }
-
-    if (!valid) return;
-
-    btn.disabled = true;
-    txt.textContent = 'Sending...';
-
-    try {
-      await emailjs.send(
-        "service_nf9u859",
-        "template_f0x2qms",
-        {
-          name: fn.value,
-          email: fe.value,
-          message: fm.value
-        }
-      );
-
-      form.reset();
-      ok.classList.add('show');
-      setTimeout(() => ok.classList.remove('show'), 5000);
-
-    } catch (err) {
-      console.error(err);
-      txt.textContent = 'Error';
-    } finally {
-      btn.disabled = false;
-      txt.textContent = 'Send Message';
-    }
-  });
-}
-
 /* ── SMOOTH SCROLL ── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
