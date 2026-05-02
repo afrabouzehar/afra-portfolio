@@ -5,6 +5,7 @@ const portfolioData = {
   email: "bouzehar.afra@gmail.com",
   location: "Agadir, Morocco",
   phone: "+212 684 289304",
+  available: true,
   social: {
     github: "https://github.com/afrabouzehar",
     linkedin: "https://linkedin.com/in/afra-bouzehar",
@@ -14,8 +15,8 @@ const portfolioData = {
     { name: "CSS3", category: "Web" },
     { name: "JavaScript", category: "Web" },
     { name: "PHP", category: "Web" },
-    { name: "C/C++", category: "Programming" },
-    { name: "Python", category: "Programming" },
+    { name: "C/C++", category: "Systems" },
+    { name: "Python", category: "Systems" },
     { name: "MySQL", category: "Database" },
     { name: "PostgreSQL", category: "Database" },
     { name: "Git", category: "Tools" },
@@ -25,28 +26,34 @@ const portfolioData = {
   ],
   projects: [
     {
+      title: "Devippy Community",
+      description: "A community platform for developers — resource sharing and tools. Fully designed and developed from scratch.",
+      link: "https://github.com/afrabouzehar",
+      tags: ["HTML", "CSS", "JavaScript", "PHP"],
+    },
+    {
       title: "Auterra Premium",
-      description: "A static front-end project simulating a car rental platform. Built with plain HTML, CSS, and JavaScript — no back-end, no framework, just clean web fundamentals.",
+      description: "A static front-end project simulating a car rental platform. Clean web fundamentals, no framework.",
       link: "https://auterra-premium.vercel.app",
       tags: ["HTML", "CSS", "JavaScript"],
     },
     {
       title: "C++ Calculator",
-      description: "A simple calculator implemented in C++ with basic arithmetic operations. My first systems programming project.",
+      description: "A simple calculator implemented in C++ with basic arithmetic operations.",
       link: "https://github.com/afrabouzehar",
       tags: ["C++"],
     },
     {
       title: "Afra's Portfolio",
-      description: "This portfolio — built with React and Tailwind CSS. Designed, coded, and deployed independently from scratch.",
+      description: "This portfolio — built with React and Tailwind CSS. Designed, coded and deployed independently.",
       link: "https://afra-bouzehar.vercel.app",
       tags: ["React", "Tailwind CSS"],
     },
   ],
   education: [
     {
-      degree: "1st year — Software Design & Development (CDL)",
-      school: "École Supérieure de Technologie d'Agadir (ESTA)",
+      degree: "Software Design & Development (CDL)",
+      school: "ESTA Agadir",
       year: "2025 – 2027",
     },
     {

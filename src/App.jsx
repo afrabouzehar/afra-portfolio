@@ -1,14 +1,18 @@
+import { useTheme } from './context/ThemeContext'
 import Navbar from './Components/Navbar'
-import Hero from './Components/sections/Hero' 
+import Hero from './Components/sections/Hero'
 import About from './Components/sections/About'
 import Skills from './Components/sections/Skills'
 import Projects from './Components/sections/Projects'
 import Contact from './Components/sections/Contact'
 import Footer from './Components/Footer'
 import ScrollToTop from './Components/ScrollToTop'
+
 function App() {
+  const { isDark } = useTheme()
+
   return (
-    <main>
+    <div className={isDark ? 'bg-[#0d0d14] text-slate-200' : 'bg-gray-50 text-gray-900'}>
       <Navbar />
       <Hero />
       <About />
@@ -17,7 +21,7 @@ function App() {
       <Contact />
       <Footer />
       <ScrollToTop />
-    </main>
+    </div>
   )
 }
 

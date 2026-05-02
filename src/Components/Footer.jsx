@@ -1,57 +1,51 @@
+import { useTheme } from '../context/ThemeContext'
 import portfolioData from '../data/portfolioData'
 
 function Footer() {
-  const currentYear = new Date().getFullYear()
+  const { isDark } = useTheme()
+  const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-gray-900 text-white py-12 px-6">
+    <footer className={`border-t py-12 px-6 transition-colors duration-300
+      ${isDark ? 'bg-[#0a0a11] border-purple-900/30' : 'bg-white border-purple-100'}`}>
       <div className="max-w-6xl mx-auto flex flex-col items-center gap-6">
 
-        {/* Name */}
-        <span className="text-2xl font-bold text-purple-400">
+        <span className={`font-bold text-xl ${isDark ? 'text-purple-400' : 'text-purple-700'}`}>
           {portfolioData.name}
         </span>
 
-        {/* Nav Links */}
-        <ul className="flex flex-wrap justify-center gap-6 list-none">
+        <ul className="flex flex-wrap justify-center gap-8 list-none">
           {["About", "Skills", "Projects", "Contact"].map((item) => (
             <li key={item}>
-              <a
-                href={`#${item.toLowerCase()}`}
-                className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
-              >
+              <a href={`#${item.toLowerCase()}`}
+                className={`text-sm transition-colors duration-200
+                  ${isDark ? 'text-slate-500 hover:text-purple-400' : 'text-gray-400 hover:text-purple-600'}`}>
                 {item}
               </a>
             </li>
           ))}
         </ul>
 
-        {/* Social Links */}
         <div className="flex gap-4">
-          <a
-            href={portfolioData.social.github}
-            target="_blank"
-            rel="noreferrer"
-            className="bg-gray-800 hover:bg-purple-600 text-white text-sm px-5 py-2 rounded-full transition-colors duration-200"
-          >
-            GitHub
-          </a>
-          <a
-            href={portfolioData.social.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="bg-gray-800 hover:bg-purple-600 text-white text-sm px-5 py-2 rounded-full transition-colors duration-200"
-          >
-            LinkedIn
-          </a>
+          {[
+            { label: "GitHub", href: portfolioData.social.github },
+            { label: "LinkedIn", href: portfolioData.social.linkedin },
+          ].map(({ label, href }) => (
+            <a key={label} href={href} target="_blank" rel="noreferrer"
+              className={`text-sm px-5 py-2 rounded-lg border transition-all duration-200
+                ${isDark
+                  ? 'border-purple-500/30 text-purple-400 hover:bg-purple-500/10'
+                  : 'border-purple-200 text-purple-600 hover:bg-purple-50'
+                }`}>
+              {label}
+            </a>
+          ))}
         </div>
 
-        {/* Divider */}
-        <div className="w-full h-px bg-gray-800" />
+        <div className={`w-full h-px ${isDark ? 'bg-purple-900/30' : 'bg-purple-100'}`} />
 
-        {/* Copyright */}
-        <p className="text-gray-500 text-sm text-center">
-          © {currentYear} {portfolioData.name}. All rights reserved.
+        <p className={`text-xs font-mono ${isDark ? 'text-slate-600' : 'text-gray-400'}`}>
+          © {year} {portfolioData.name} — Built with React & Tailwind CSS
         </p>
 
       </div>

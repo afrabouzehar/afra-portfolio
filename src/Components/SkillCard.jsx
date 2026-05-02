@@ -1,25 +1,28 @@
+import { useTheme } from '../context/ThemeContext'
+
 function SkillCard({ name, category }) {
-  const categoryStyles = {
-    Web: "bg-purple-100 text-purple-700",
-    Programming: "bg-blue-100 text-blue-700",
-    Database: "bg-green-100 text-green-700",
-    Tools: "bg-orange-100 text-orange-700",
-    Learning: "bg-pink-100 text-pink-700",
+  const { isDark } = useTheme()
+
+  const categoryColors = {
+    Web:      isDark ? 'text-blue-400 bg-blue-500/10 border-blue-500/20'      : 'text-blue-600 bg-blue-50 border-blue-200',
+    Systems:  isDark ? 'text-orange-400 bg-orange-500/10 border-orange-500/20' : 'text-orange-600 bg-orange-50 border-orange-200',
+    Database: isDark ? 'text-green-400 bg-green-500/10 border-green-500/20'   : 'text-green-600 bg-green-50 border-green-200',
+    Tools:    isDark ? 'text-yellow-400 bg-yellow-500/10 border-yellow-500/20' : 'text-yellow-600 bg-yellow-50 border-yellow-200',
+    Learning: isDark ? 'text-purple-400 bg-purple-500/10 border-purple-500/20' : 'text-purple-600 bg-purple-50 border-purple-200',
   }
 
-  const style = categoryStyles[category] || "bg-gray-100 text-gray-700"
+  const cardStyle = isDark
+    ? 'bg-[#131320] border-purple-900/20 hover:border-purple-500/40'
+    : 'bg-white border-gray-100 hover:border-purple-300'
 
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center gap-3 border border-gray-100">
-
-      {/* Category Badge */}
-      <span className={`text-xs font-bold px-3 py-1 rounded-full ${style}`}>
+    <div className={`rounded-xl p-5 border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg flex flex-col items-center gap-3 ${cardStyle}`}>
+      <span className={`text-xs font-mono px-3 py-1 rounded-full border ${categoryColors[category] || categoryColors.Learning}`}>
         {category}
       </span>
-
-      {/* Skill Name */}
-      <p className="font-semibold text-gray-800 text-center">{name}</p>
-
+      <p className={`font-semibold text-sm text-center ${isDark ? 'text-slate-200' : 'text-gray-800'}`}>
+        {name}
+      </p>
     </div>
   )
 }
