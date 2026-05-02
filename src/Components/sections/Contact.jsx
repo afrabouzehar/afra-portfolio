@@ -31,13 +31,13 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen flex items-center bg-blue-50 px-6 py-20"
+      className="min-h-screen flex items-center bg-purple-50 px-6 py-20"
     >
       <div className="max-w-6xl mx-auto w-full">
 
         {/* Section Header */}
         <div className="text-center mb-16">
-          <p className="text-blue-500 font-semibold uppercase tracking-widest mb-2">
+          <p className="text-purple-500 font-semibold uppercase tracking-widest mb-2">
             Get In Touch
           </p>
           <h2 className="text-4xl font-extrabold text-gray-900">
@@ -56,12 +56,12 @@ function Contact() {
 
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">
+                <div className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold">
                   @
                 </div>
                 <a
                   href={`mailto:${portfolioData.email}`}
-                  className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                  className="text-gray-700 hover:text-purple-600 transition-colors duration-200"
                 >
                   {portfolioData.email}
                 </a>
@@ -75,7 +75,7 @@ function Contact() {
                   href={portfolioData.social.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                  className="text-gray-700 hover:text-purple-600 transition-colors duration-200"
                 >
                   GitHub Profile
                 </a>
@@ -111,7 +111,7 @@ function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="John Doe"
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all duration-200"
                   />
                 </div>
 
@@ -126,7 +126,7 @@ function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="john@example.com"
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all duration-200"
                   />
                 </div>
 
@@ -141,13 +141,13 @@ function Contact() {
                     required
                     placeholder="Tell me about your project or opportunity..."
                     rows={5}
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200 resize-none"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all duration-200 resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-200"
+                  className="w-full bg-purple-600 text-white py-3 rounded-xl font-semibold hover:bg-purple-700 transition-colors duration-200"
                 >
                   Send Message →
                 </button>

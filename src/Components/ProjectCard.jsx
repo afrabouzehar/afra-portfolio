@@ -1,6 +1,6 @@
 function ProjectCard({ title, description, link, index }) {
   const gradients = [
-    "from-blue-500 to-blue-700",
+    "from-purple-500 to-purple-700",
     "from-purple-500 to-purple-700",
     "from-teal-500 to-teal-700",
   ]
@@ -29,7 +29,7 @@ function ProjectCard({ title, description, link, index }) {
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="inline-block bg-gray-900 text-white text-sm px-6 py-2 rounded-full font-semibold hover:bg-blue-600 transition-colors duration-200"
+          className="inline-block bg-gray-900 text-white text-sm px-6 py-2 rounded-full font-semibold hover:bg-purple-600 transition-colors duration-200"
         >
           View Project →
         </a>

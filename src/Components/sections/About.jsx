@@ -10,7 +10,7 @@ function About() {
 
         {/* Left: Image placeholder */}
         <div className="flex justify-center">
-          <div className="w-72 h-72 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center shadow-2xl">
+          <div className="w-72 h-72 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center shadow-2xl">
             <span className="text-white text-6xl font-bold">
               {portfolioData.name.charAt(0)}
             </span>
@@ -19,7 +19,7 @@ function About() {
 
         {/* Right: Text content */}
         <div>
-          <p className="text-blue-500 font-semibold uppercase tracking-widest mb-2">
+          <p className="text-purple-500 font-semibold uppercase tracking-widest mb-2">
             About Me
           </p>
           <h2 className="text-4xl font-extrabold text-gray-900 mb-6">
@@ -38,7 +38,7 @@ function About() {
               { label: "Location", value: "Morocco" },
             ].map((info) => (
               <div key={info.label}>
-                <p className="text-blue-500 font-semibold text-sm uppercase">
+                <p className="text-purple-500 font-semibold text-sm uppercase">
                   {info.label}
                 </p>
                 <p className="text-gray-700 font-medium">{info.value}</p>
@@ -60,7 +60,7 @@ function About() {
               href={portfolioData.social.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition-colors duration-200"
+              className="bg-purple-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-purple-700 transition-colors duration-200"
             >
               LinkedIn
             </a>

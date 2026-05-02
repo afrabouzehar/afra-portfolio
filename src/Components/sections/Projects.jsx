@@ -11,7 +11,7 @@ function Projects() {
 
         {/* Section Header */}
         <div className="text-center mb-16">
-          <p className="text-blue-500 font-semibold uppercase tracking-widest mb-2">
+          <p className="text-purple-500 font-semibold uppercase tracking-widest mb-2">
             My Work
           </p>
           <h2 className="text-4xl font-extrabold text-gray-900 mb-4">

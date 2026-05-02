@@ -1,23 +1,23 @@
-function SkillCard({ name, index }) {
-  const colors = [
-    "from-blue-400 to-blue-600",
-    "from-purple-400 to-purple-600",
-    "from-green-400 to-green-600",
-    "from-orange-400 to-orange-600",
-    "from-pink-400 to-pink-600",
-    "from-teal-400 to-teal-600",
-  ]
+function SkillCard({ name, category }) {
+  const categoryStyles = {
+    Web: "bg-purple-100 text-purple-700",
+    Programming: "bg-blue-100 text-blue-700",
+    Database: "bg-green-100 text-green-700",
+    Tools: "bg-orange-100 text-orange-700",
+    Learning: "bg-pink-100 text-pink-700",
+  }
 
-  // Pick a color based on position in the list
-  const color = colors[index % colors.length]
+  const style = categoryStyles[category] || "bg-gray-100 text-gray-700"
 
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col items-center gap-3 border border-gray-100">
-      
-      {/* Color dot */}
-      <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${color}`} />
-      
-      {/* Skill name */}
+    <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center gap-3 border border-gray-100">
+
+      {/* Category Badge */}
+      <span className={`text-xs font-bold px-3 py-1 rounded-full ${style}`}>
+        {category}
+      </span>
+
+      {/* Skill Name */}
       <p className="font-semibold text-gray-800 text-center">{name}</p>
 
     </div>

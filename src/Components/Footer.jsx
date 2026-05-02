@@ -8,7 +8,7 @@ function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col items-center gap-6">
 
         {/* Name */}
-        <span className="text-2xl font-bold text-blue-400">
+        <span className="text-2xl font-bold text-purple-400">
           {portfolioData.name}
         </span>
 
@@ -32,7 +32,7 @@ function Footer() {
             href={portfolioData.social.github}
             target="_blank"
             rel="noreferrer"
-            className="bg-gray-800 hover:bg-blue-600 text-white text-sm px-5 py-2 rounded-full transition-colors duration-200"
+            className="bg-gray-800 hover:bg-purple-600 text-white text-sm px-5 py-2 rounded-full transition-colors duration-200"
           >
             GitHub
           </a>
@@ -40,7 +40,7 @@ function Footer() {
             href={portfolioData.social.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="bg-gray-800 hover:bg-blue-600 text-white text-sm px-5 py-2 rounded-full transition-colors duration-200"
+            className="bg-gray-800 hover:bg-purple-600 text-white text-sm px-5 py-2 rounded-full transition-colors duration-200"
           >
             LinkedIn
           </a>

@@ -6,7 +6,7 @@ function Navbar() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         
         {/* Logo / Name */}
-        <span className="text-xl font-bold text-blue-600">
+        <span className="text-xl font-bold text-purple-600">
           {portfolioData.name}
         </span>
 
@@ -16,7 +16,7 @@ function Navbar() {
             <li key={item}>
               <a
                 href={`#${item.toLowerCase()}`}
-                className="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200"
+                className="text-gray-600 hover:text-purple-600 font-medium transition-colors duration-200"
               >
                 {item}
               </a>
