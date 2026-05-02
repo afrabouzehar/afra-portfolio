@@ -1,4 +1,4 @@
-import { useTheme } from '../context/ThemeContext'
+import { useTheme } from '../context/useTheme'
 
 function ProjectCard({ title, description, link, tags, index }) {
   const { isDark } = useTheme()

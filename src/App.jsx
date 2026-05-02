@@ -1,4 +1,4 @@
-import { useTheme } from './context/ThemeContext'
+import { useTheme } from './context/useTheme'
 import Navbar from './Components/Navbar'
 import Hero from './Components/sections/Hero'
 import About from './Components/sections/About'
@@ -7,6 +7,7 @@ import Projects from './Components/sections/Projects'
 import Contact from './Components/sections/Contact'
 import Footer from './Components/Footer'
 import ScrollToTop from './Components/ScrollToTop'
+import './index.css'
 
 function App() {
   const { isDark } = useTheme()
