@@ -59,7 +59,7 @@ function Contact() {
                 <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">
                   @
                 </div>
-                
+                <a
                   href={`mailto:${portfolioData.email}`}
                   className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
                 >
@@ -71,7 +71,7 @@ function Contact() {
                 <div className="w-10 h-10 bg-gray-900 rounded-full flex items-center justify-center text-white font-bold text-xs">
                   GH
                 </div>
-                
+                <a
                   href={portfolioData.social.github}
                   target="_blank"
                   rel="noreferrer"
