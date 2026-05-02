@@ -14,7 +14,7 @@ html {
   color-scheme: dark;
 }
 
-/* Scrollbar styling */
+/* Scrollbar styling - will be overridden by theme */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -24,6 +24,14 @@ html {
 ::-webkit-scrollbar-thumb {
   background: #7F77DD;
   border-radius: 3px;
+}
+
+/* Light mode scrollbar */
+.light-mode ::-webkit-scrollbar-track {
+  background: #f9fafb;
+}
+.light-mode ::-webkit-scrollbar-thumb {
+  background: #7F77DD;
 }
 
 /* Selection color */

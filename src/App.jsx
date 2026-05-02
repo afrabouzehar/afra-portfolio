@@ -13,7 +13,7 @@ function App() {
   const { isDark } = useTheme()
 
   return (
-    <div className={isDark ? 'bg-[#0d0d14] text-slate-200' : 'bg-gray-50 text-gray-900'}>
+    <div className={`${isDark ? 'bg-[#0d0d14] text-slate-200' : 'bg-gray-50 text-gray-900 light-mode'}`}>
       <Navbar />
       <Hero />
       <About />
