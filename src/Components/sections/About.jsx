@@ -16,6 +16,7 @@ function About() {
             </span>
           </div>
         </div>
+        
 
         {/* Right: Text content */}
         <div>
@@ -44,7 +45,35 @@ function About() {
                 <p className="text-gray-700 font-medium">{info.value}</p>
               </div>
             ))}
-          </div>
+          </div><br></br>
+
+
+{/* Education */}
+<div className="mb-6">
+  <p className="text-purple-500 font-semibold text-sm uppercase mb-3">
+    Education
+  </p>
+  {portfolioData.education.map((edu) => (
+    <div key={edu.degree} className="mb-2">
+      <p className="font-semibold text-gray-800">{edu.degree}</p>
+      <p className="text-gray-500 text-sm">{edu.school} · {edu.year}</p>
+    </div>
+  ))}
+</div>
+
+{/* Languages */}
+<div className="mb-8">
+  <p className="text-purple-500 font-semibold text-sm uppercase mb-3">
+    Languages
+  </p>
+  <div className="flex flex-wrap gap-2">
+    {portfolioData.languages.map((lang) => (
+      <span key={lang} className="bg-purple-50 text-purple-700 text-sm px-3 py-1 rounded-full font-medium">
+        {lang}
+      </span>
+    ))}
+  </div>
+</div>
 
           {/* Social Links */}
           <div className="flex gap-4 mt-8">

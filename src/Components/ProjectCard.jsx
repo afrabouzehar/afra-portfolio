@@ -1,4 +1,4 @@
-function ProjectCard({ title, description, link, index }) {
+function ProjectCard({ title, description, link, index, tags }) {
   const gradients = [
     "from-purple-500 to-purple-700",
     "from-purple-500 to-purple-700",
@@ -34,6 +34,14 @@ function ProjectCard({ title, description, link, index }) {
           View Project →
         </a>
       </div>
+      {/* Tags */}
+<div className="flex flex-wrap gap-2 mb-4">
+  {tags.map((tag) => (
+    <span key={tag} className="bg-purple-50 text-purple-600 text-xs font-semibold px-3 py-1 rounded-full">
+      {tag}
+    </span>
+  ))}
+</div>
 
     </div>
   )

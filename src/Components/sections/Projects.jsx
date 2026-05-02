@@ -31,6 +31,7 @@ function Projects() {
               description={project.description}
               link={project.link}
               index={index}
+              tags={project.tags}
             />
           ))}
         </div>
