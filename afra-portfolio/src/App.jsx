@@ -1,7 +1,11 @@
+import Navbar from './components/Navbar'
+import Hero from './components/sections/Hero'
+
 function App() {
   return (
     <main>
-      <p>My portfolio is loading...</p>
+      <Navbar />
+      <Hero />
     </main>
   )
 }
