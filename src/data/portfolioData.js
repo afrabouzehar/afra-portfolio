@@ -10,19 +10,19 @@ const portfolioData = {
   skills: ["HTML5", "CSS3", "JavaScript", "C/C++", "PHP"],
   projects: [
     {
-      title: "Project One",
-      description: "Describe what this project does in 1-2 sentences.",
-      link: "#",
+      title: "Auterra Premium",
+      description: "A static front-end project simulating a car rental platform. Built with plain HTML, CSS, and JavaScript — no back-end, no framework, just clean web fundamentals.",
+      link: "https://github.com/afrabouzehar/Auterra-Premium",
     },
     {
-      title: "Project Two", 
-      description: "Describe what this project does in 1-2 sentences.",
-      link: "#",
+      title: "C++ Calculator", 
+      description: "A simple calculator implemented in C++ with basic arithmetic operations.",
+      link: "https://github.com/afrabouzehar/mini-calculator",
     },
     {
-      title: "Project Three",
-      description: "Describe what this project does in 1-2 sentences.",
-      link: "#",
+      title: "Afra's Portfolio",
+      description: "A personal portfolio website showcasing my projects and skills.",
+      link: "https://github.com/afrabouzehar/afra-portfolio",
     },
   ],
 }
